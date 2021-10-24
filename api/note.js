@@ -17,10 +17,13 @@ router
 .route("api/notes/:id")
 .get((req,res)=> {
   res.send("Una nota por id");
-})
+  Note.find((filter,cb) => {
+    res.json(notes);
+  });
+});
 .put((req,res)=> {
   res.send("Actualizar nota");
-})
+});
 .delete((req,res) => {
   res.send("Borrar nota");
 });
