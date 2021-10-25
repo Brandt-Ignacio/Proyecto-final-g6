@@ -6,7 +6,9 @@ const DB ='mongodb://localhost/notasapp'
 mongoose.connect(DB).then(() => console.log('DB conectada'));
 const app = express();
 
-app.use "/",require("./api/note"));
+app.use(express.json());
+
+app.use('/',require("./api/note"));
 // const User = require('./models/User');
 // app.get("/api/users",(req,res) => {
 //   User.find((err,users) => {

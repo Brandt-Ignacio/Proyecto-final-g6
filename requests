@@ -1,0 +1,7 @@
+#requests
+#crear una nota
+curl -X POST  -H "content-Type: application/json" -d '{"title":"hacer la ropa","text":"lavar la ropa"}'localhost:300/api/notes
+
+#borrar una notasapp
+#Luego de /notes/ poner id de la nota a borrar
+curl -X DELETE localhost:3000/api/notes/6177107a268af9055de3ecd9

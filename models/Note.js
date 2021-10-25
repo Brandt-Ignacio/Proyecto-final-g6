@@ -4,10 +4,10 @@ const Schema = mongoose.Schema;
 const NoteSchema = new Schema({
   title: String,
   text: String,
-  author: Schema.Types.Objectid,
+  author: Schema.Types.ObjectId,
   createdAt: {
-    type Date,
-    default Date.now
+    type: Date,
+    default: Date.now
   }
 });
 
