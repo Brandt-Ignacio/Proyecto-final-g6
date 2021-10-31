@@ -26,9 +26,23 @@ router
     res.json(note);
   });
 })
-.put((req,res)=> {
-  res.send("Actualizar nota");//hay que modificar este
-})
+.put('/notes/:id', (req, res, next) => {
+  const note = {
+    title: req.body.title,
+    text: req.body.text,
+    updatedAt: Date.now()
+  };
+  const options = {
+    new: true,
+    omitUndefined: true
+  };
+  Note.findByIdAndUpdate(req.params.id, note, options).exec((err, note) => {
+    if (err) return next(err);
+    if (!note) return res.status(404).json({ msg: 'Not found' });
+    res.status(200).json(note);
+  });
+});
+
 .delete((req,res) => {
   Note.findByIDAndRemove(req.params.id, (err)=> {
     res.json({msg: 'nota borrada'});
