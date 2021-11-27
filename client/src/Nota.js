@@ -5,7 +5,7 @@ const Nota = props => {
       <h2>{title}</h2>
       <p>{text}</p>
       <p>{id}</p>
-      <button onclick={() => deleteNote(id)}>Borrar</button>
+      <button onClick={() => deleteNote(id)}>Borrar</button>
       <button onClick={()=> updateNote(id)}>Editar</button>
     </div>
   );

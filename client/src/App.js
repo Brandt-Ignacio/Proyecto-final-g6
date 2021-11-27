@@ -66,25 +66,27 @@ const [title, setTitle] = useState('')
 
   return (
     <div className="app">
+    <h1 className="center">mi app</h1>
       <div className="agregarNota">
         <form onSubmit={handleSubmit}>
           <label>Titulo</label>
+          <br/>
           <input
             onChange={e => setTitle(e.target.value)}
             value={title}
             type="text"
           />
           <br>
-          <label>Texto</label>
           </br>
+            <label>Texto</label>
           <textarea
           rows="6"
           cols="40"
           spellCheck={false}
             onChange={e => setText(e.target.value)}
             value={text}
-            type="text"
-          />
+            ></textarea>
+          <br/>
           <input type="submit" value="Guardar" />
         </form>
       </div>
@@ -94,10 +96,10 @@ const [title, setTitle] = useState('')
           return <Nota
           key={note._id}
           id={note._id}
+    title={note.title}
           deleteNote={deleteNote}
           updateNote={updateNote}
 
-          title={note.title}
           text={note.text} />
         })}
       </div>

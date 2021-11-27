@@ -35,14 +35,19 @@ router
     const id= req.params.id;
     const {title,text } =req.body;
     const note = {title,text};
-})
-
-  .delete((req, res, next) => {
-  Note.find({ id: req.params.id }, (err, note) => {
-      if (err) return next(err);
-      if (!note) return res.status(404).json({ msg: 'Not found' });
-      res.status(200).json({ msg: 'Delete OK' });
+    const options ={
+    new: true,
+    omitUndefined:true
+};
+Note.findByIdAndUpdate(id, note, options)
+    .exec((err, note) => {
+      res.json(note);
     });
+})
+.delete((req, res) => {
+  Note.findByIdAndRemove(req.params.id, (err) => {
+    res.json({ msg: 'Nota borrada' });
   });
+});
 
 module.exports = router;
