@@ -30,29 +30,15 @@ router
       res.json(note);
     });
   })
+
   .put((req, res, ) => {
     const id= req.params.id;
     const {title,text } =req.body;
     const note = {title,text};
-
-Note.findByIdAndUpdate(id,note,options)
-.exec((err, note))
-{res.json(note);
-}
-    };
-    const options = {
-      new: true,
-      omitUndefined: true
-    };
-    Note.findByIdAndUpdate(req.params.id, note, options).exec((err, note) => {
-      if (err) return next(err);
-      if (!note) return res.status(404).json({ msg: 'Not found' });
-      res.status(200).json(note);
-    });
-  });
+})
 
   .delete((req, res, next) => {
-    Note.findByIdAndRemove(req.params.id).exec((err, note) => {
+  Note.find({ id: req.params.id }, (err, note) => {
       if (err) return next(err);
       if (!note) return res.status(404).json({ msg: 'Not found' });
       res.status(200).json({ msg: 'Delete OK' });

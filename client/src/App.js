@@ -5,18 +5,37 @@ import Nota from './Nota';
 const App = () => {
 
   const [notes, setNotes] = useState([]);
-const deleteNote = id =>
-  axios.delete("http://localhost4000/api/notes/" + id)
+const deleteNote = id =>{
+  axios.delete("http://localhost:4000/api/notes/" + id)
   .then(res =>{
 
   const notasActualizadas = notes.filter(note => id !==
-  note,_id)
+  note._id);
   console.log(notasActualizadas);
-  setNotes
-}
+  setNotes(notasActualizadas)
+})
+.catch(err=> console.log(err));
+};
+const updateNote = id => {
+  console.log(id);
+  const tituloActualizado = prompt("ingrese nuevo titulo");
+    const textoActualizado = prompt("ingrese nuevo texto");
+    const datos = {
+      title: tituloActualizado,
+      text:textoActualizado
+    };
+    axios.put("http://localhost:4000/api/notes/"+id,datos)
+    .then(res=>{
+      const notasActualizadas = notes.map(note =>(
+      note._id === id? res.data : note
+    ));
+  setNotes(notasActualizadas);
+})
+.catch(err=> console.log(err));
+};
+  useEffect(() => {
+    console.log('Vamos a buscar todas las notas')
 
-    ,console.log('Vamos a buscar todas las notas')
-    ,useEffect(() => {
     axios.get('http://localhost:4000/api/notes')
       .then(res => {
         console.log(res.data);
@@ -24,7 +43,7 @@ const deleteNote = id =>
       });
   }, [])
 
-  const [title, setTitle] = useState('')
+const [title, setTitle] = useState('')
   const [text, setText] = useState('')
 
   const handleSubmit = e => {
@@ -42,24 +61,11 @@ const deleteNote = id =>
     .catch(err => console.log(err));
 
   };
-const updateNote = id => {
-  console.log(id);
-  const tituloActualizado = prompt("ingrese nuevo titulo");
-    const textoActualizado = prompt("ingrese nuevo texto");
-    const datos = {
-      title: tituloActualizado,
-      text:textoActualizado
-    }
 
-  axios.put("http://localhost:4000/api/notes/"+id,datos)
-  .then(res=>{
-    onst notasActualizadas = notes.map(note =>(
-    note._id === id? res.data : note
-  ))
-}setNotes(notasActualizadas)
+
+
   return (
     <div className="app">
-    <h1
       <div className="agregarNota">
         <form onSubmit={handleSubmit}>
           <label>Titulo</label>
