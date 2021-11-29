@@ -66,7 +66,8 @@ const [title, setTitle] = useState('')
 
   return (
     <div className="app">
-    <h1 className="center">mi app</h1>
+    <header> <h1> Mi app </h1></header>
+    <nav> <h2>Brandt</h2> <h2>Condori</h2> <h2> Zelada </h2> </nav>
       <div className="agregarNota">
         <form onSubmit={handleSubmit}>
           <label>Titulo</label>
@@ -87,7 +88,7 @@ const [title, setTitle] = useState('')
             value={text}
             ></textarea>
           <br/>
-          <input type="submit" value="Guardar" />
+          <input type="submit" className='btn btn-primary' value="Guardar" />
         </form>
       </div>
       <div className="notas">
@@ -103,6 +104,10 @@ const [title, setTitle] = useState('')
           text={note.text} />
         })}
       </div>
+ <footer>
+  <h1>Grupo 6</h1>
+</footer>
+
     </div>
   );
 };
