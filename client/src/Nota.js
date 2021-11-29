@@ -16,5 +16,5 @@ const Nota = props => {
     </div>
       </div>
       </div>
-  )
-  ;
+  );
+  
