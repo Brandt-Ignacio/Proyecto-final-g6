@@ -102,7 +102,7 @@ const [title, setTitle] = useState('')
     title={note.title}
           deleteNote={deleteNote}
           updateNote={updateNote}
-
+id={note._id}
           text={note.text}
            />
         })}
