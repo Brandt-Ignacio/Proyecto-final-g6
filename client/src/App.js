@@ -91,10 +91,10 @@ const [title, setTitle] = useState('')
           <input type="submit" className='btn btn-primary' value="Guardar" />
         </form>
       </div>
-      <div className="notas">
+   <div className="e">
         <h1>Lista de notas</h1>
 
-&nbsp;
+    <div className="notas">
 
         {notes.map(note => {
           return <Nota
@@ -107,6 +107,7 @@ id={note._id}
            />
         })}
       </div>
+</div>
  <footer>
   <h1>Grupo 6</h1>
 </footer>
