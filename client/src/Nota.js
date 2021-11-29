@@ -6,9 +6,11 @@ const Nota = props => {
       <p>{text}</p>
       <p>{id}</p>
       <button onClick={() => deleteNote(id)}>Borrar</button>
+  
       <button onClick={()=> updateNote(id)}>Editar</button>
     </div>
-  );
+  )
+  ;
 
 
 };

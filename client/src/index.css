@@ -29,7 +29,7 @@ nav h2 {
 form{
   text-align: center;
   border: 2px solid gray;
-  margin:10px;
+  margin:0px;
   padding:20px;
   background:#6100FB;
   color: white;
@@ -45,25 +45,39 @@ align-items: center;
 
 input {
 max-width: 200px;
- 
+
 }
 
 .notas{
+
   display:flex;
   flex-direction:row;
 flex-wrap:wrap;
 align-items:center;
+
 }
 
 
 
 .notas {
-  border: 1px solid black;
-  margin: 5px;
-  padding:20px;
+  border: 5px solid black;
+  margin: 0px;
+  padding:10px;
   font-family: serif;
+
 }
-.nota p {
+.nota  {
+  border: 4px solid black;
+  margin: 10px;
+  padding:10px;
+  font-family:serif;
+  background-color: #fff;
+}
+.nota p  {
+
+  margin: 10px;
+  padding:10px;
+
   font-family:serif;
 }
 

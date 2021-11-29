@@ -93,15 +93,18 @@ const [title, setTitle] = useState('')
       </div>
       <div className="notas">
         <h1>Lista de notas</h1>
+
+&nbsp;
+
         {notes.map(note => {
           return <Nota
           key={note._id}
-          id={note._id}
     title={note.title}
           deleteNote={deleteNote}
           updateNote={updateNote}
 
-          text={note.text} />
+          text={note.text}
+           />
         })}
       </div>
  <footer>
